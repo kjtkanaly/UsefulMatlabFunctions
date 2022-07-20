@@ -7,7 +7,7 @@ function [u, v, w] = AzEl2UV(Az, El, tiltAz, tiltEl)
 	tiltEl = tiltEl .* pi ./ 180;
 	
 	% Convert to UV
-	u = cos(El) .* sin(tiltAz - Az);
+	u = cos(El) .* sin(Az - tiltAz);
 	v = sin(El - tiltEl) + cos(El) .* sin(tiltEl) .* (1 - cos(tiltAz - Az));
 	w = sin(El) .* sin(tiltEl) + cos(El) .* cos(tiltEl) .* cos(tiltAz - Az);	
 
